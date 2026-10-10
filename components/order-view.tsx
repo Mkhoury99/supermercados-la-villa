@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { money } from "@/lib/format";
 import { useLang } from "@/lib/i18n";
 import { loadOrder, type SavedOrder } from "@/lib/orders";
@@ -10,16 +10,16 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function OrderView() {
-  const params = useParams<{ id: string }>();
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id") ?? "";
   const { lang } = useLang();
   const [order, setOrder] = useState<SavedOrder | null | undefined>(undefined);
   const [step, setStep] = useState(0);
 
   useEffect(() => {
-    const id = params.id;
     const timer = window.setTimeout(() => setOrder(loadOrder(id)), 0);
     return () => window.clearTimeout(timer);
-  }, [params.id]);
+  }, [id]);
 
   useEffect(() => {
     if (!order) return;

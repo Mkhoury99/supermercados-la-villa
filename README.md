@@ -25,3 +25,9 @@ Open [http://localhost:47231](http://localhost:47231) if you start the dev serve
 - Basket, checkout, and a demo tracker
 
 The header switches the site between English and Spanish.
+
+## GitHub Pages
+
+`main` includes `.github/workflows/pages.yml`. On a GitHub repository, turn on Pages with **GitHub Actions** as the source. A push to `main` builds a static export into `out/` and publishes it.
+
+Project sites are served from `https://<user>.github.io/<repo>/`. A repository named `<user>.github.io` is served from the domain root. Pages for a private repository needs a GitHub plan that includes private Pages, or a public repository.

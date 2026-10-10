@@ -143,7 +143,7 @@ export function CheckoutView() {
       total,
     });
     clear();
-    router.push(`/order/${id}`);
+    router.push(`/order?id=${id}`);
   }
 
   return (
